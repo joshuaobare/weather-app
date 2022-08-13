@@ -2,8 +2,8 @@
 const key = "62d50fd38f48aba39355b8ae5a3ae053";
 let url;
 
-function urlLocator(x) {
-  return (url = `http://api.openweathermap.org/data/2.5/weather?q=${x}&APPID=${key}`);
+function urlLocator(searchTerm) {
+  return (url = `http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&APPID=${key}`);
 }
 
 function jsonParser(x) {
@@ -20,7 +20,16 @@ function jsonParser(x) {
     `Today's temperature is ${temp}, pressure is ${pressure}, maximum temperature is ${maxTemp}, minimum temprerature is ${minTemp}`
   );
 
-  return {temp,pressure,maxTemp,minTemp,name,country,weather,windSpeed}
+  return {
+    temp,
+    pressure,
+    maxTemp,
+    minTemp,
+    name,
+    country,
+    weather,
+    windSpeed,
+  };
 }
 
 /* fetch(urlLocator("Nairobi"), { mode: "cors" })
@@ -34,16 +43,19 @@ function jsonParser(x) {
       alert(`There's an error: ${err}`)
   }); */
 
-async function getData() {
+async function getData(searchTerm) {
   try {
-    const response = await fetch(urlLocator("Nairobi"), { mode: "cors" });
+    const response = await fetch(urlLocator(searchTerm), { mode: "cors" });
     response.json().then(function (response) {
-        console.log(response)
-      jsonParser(response);
+      return jsonParser(response);
     });
   } catch {
     alert(`There's an error`);
   }
 }
 
-getData();
+
+
+
+
+export { getData };
