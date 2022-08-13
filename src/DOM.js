@@ -64,7 +64,10 @@ function iterate(obj) {
             createDivs(capitalizeFirstLetter(key),capitalizeFirstLetter(obj[key]))
         } else if (key === "windSpeed") {
             createDivs("Wind Speed",`${obj[key]} km/h`)
-        } else {
+        } else if (key === "humidity") {
+            createDivs("Humidity",`${obj[key]}%`)
+        }
+        else {
             createDivs(capitalizeFirstLetter(key),`${obj[key]} hPa`)
         }
         

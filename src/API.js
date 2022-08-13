@@ -7,11 +7,13 @@ function urlLocator(searchTerm) {
 }
 
 function jsonParser(x) {
+    console.log(x)
   const temp = x.main.temp;
   const pressure = x.main.pressure;
   const maxTemp = x.main.temp_max;
   const minTemp = x.main.temp_min;
   const name = x.name;
+  const humidity = x.main.humidity
   const country = x.sys.country;
   const weather = x.weather;
   const windSpeed = x.wind.speed;
@@ -25,6 +27,7 @@ function jsonParser(x) {
       country,
       weather,
     temp,
+    humidity,
     pressure,
     maxTemp,
     minTemp,    
@@ -42,7 +45,7 @@ function jsonParser(x) {
   .catch(function(err) {
       alert(`There's an error: ${err}`)
   }); */
-  
+
 
 async function getData(searchTerm) {
   try {
