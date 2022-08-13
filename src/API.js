@@ -46,16 +46,11 @@ function jsonParser(x) {
 async function getData(searchTerm) {
   try {
     const response = await fetch(urlLocator(searchTerm), { mode: "cors" });
-    const data = await response.json() 
-      return jsonParser(data);
-    
+    const data = await response.json();
+    return jsonParser(data);
   } catch {
     alert(`There's an error`);
   }
 }
-
-
-
-
 
 export { getData };
