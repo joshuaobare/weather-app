@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import { getData } from "./API";
 
 const searchBar = document.querySelector("#searchBar");
