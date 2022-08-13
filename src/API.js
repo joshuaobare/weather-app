@@ -46,9 +46,9 @@ function jsonParser(x) {
 async function getData(searchTerm) {
   try {
     const response = await fetch(urlLocator(searchTerm), { mode: "cors" });
-    response.json().then(function (response) {
-      return jsonParser(response);
-    });
+    const data = await response.json() 
+      return jsonParser(data);
+    
   } catch {
     alert(`There's an error`);
   }
