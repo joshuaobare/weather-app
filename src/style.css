@@ -26,6 +26,19 @@ main {
     text-align: center;
 }
 
+.values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+    text-transform: capitalize;
+}
+
+.values.country {
+    display: flex;
+    gap: 4px;
+}
+
 #weatherArea {
     margin-top: 10px;
 }

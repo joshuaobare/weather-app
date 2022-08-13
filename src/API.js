@@ -21,13 +21,13 @@ function jsonParser(x) {
   );
 
   return {
+      name,
+      country,
+      weather,
     temp,
     pressure,
     maxTemp,
-    minTemp,
-    name,
-    country,
-    weather,
+    minTemp,    
     windSpeed,
   };
 }
@@ -42,6 +42,7 @@ function jsonParser(x) {
   .catch(function(err) {
       alert(`There's an error: ${err}`)
   }); */
+  
 
 async function getData(searchTerm) {
   try {
