@@ -43,7 +43,7 @@ function iterate(obj) {
     if (typeof obj[key] === "object" && obj[key] !== null) {
       iterate(obj[key]);
     } else {
-      if ((key === "id") || (key === "icon") ||(key === "main")) {
+      if ((key === "id") || (key === "main")) {
         return;
       } else if ((key === "name")||(key ==="country")) {
           const div = document.createElement("div")
@@ -65,11 +65,20 @@ function iterate(obj) {
         div.innerHTML = dateConverter(obj[key])
         line3.appendChild(div)
           weatherArea.appendChild(line3)
+      } else if (key === "icon"){
+          const div = document.createElement("div")
+          const line3 = document.createElement("div")
+          const pic = document.createElement("img")
+          pic.src = `http://openweathermap.org/img/wn/${obj[key]}@2x.png`
+          line3.appendChild(pic)
+          weatherArea.appendChild(line3)
       }
+
+
       else {
 
         if (key === "description") {
-            createDivs(capitalizeFirstLetter(key),capitalizeFirstLetter(obj[key]))
+            createDivs("Description",capitalizeFirstLetter(obj[key]))
         } else if (key === "windSpeed") {
             createDivs("Wind Speed",`${obj[key]} km/h`)
         } else if (key === "humidity") {

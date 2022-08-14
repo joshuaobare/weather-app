@@ -15,7 +15,8 @@ function jsonParser(x) {
   const name = x.name;
   const humidity = x.main.humidity
   const country = x.sys.country;
-  const weather = x.weather;
+  const icon = x.weather[0].icon;
+  const description = x.weather[0].description;
   const windSpeed = x.wind.speed;
 
   console.log(
@@ -26,7 +27,8 @@ function jsonParser(x) {
       name,
       country,
       date,
-      weather,
+      icon,
+      description,
     temp,
     humidity,
     pressure,
