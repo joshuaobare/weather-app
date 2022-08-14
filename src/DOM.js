@@ -34,7 +34,7 @@ async function displayData() {
 function iterate(obj) {
 
     const line = document.createElement("div")
-    
+    let tz
     line.className = "values country"
     
     
@@ -58,20 +58,28 @@ function iterate(obj) {
             createDivs("Feels Like",`${Math.round((obj[key])-273.15)}&#176;C`)
         }
         
-      } else if (key === "date"){
-        const div = document.createElement("div")
-        const line3 = document.createElement("div")
+      } else if ((key === "date")||(key==="timezone")){
+            if(key==="timezone"){
+                tz = obj[key]
+                
+            }
+            else {
+                const div = document.createElement("div")
+            const line3 = document.createElement("div")
 
-        div.innerHTML = dateConverter(obj[key])
-        line3.appendChild(div)
-          weatherArea.appendChild(line3)
+            div.innerHTML = dateConverter(obj[key],tz)
+            line3.appendChild(div)
+            weatherArea.appendChild(line3)
+            }
+            
+            
       } else if (key === "icon"){
           const div = document.createElement("div")
-          const line3 = document.createElement("div")
+          
           const pic = document.createElement("img")
           pic.src = `http://openweathermap.org/img/wn/${obj[key]}@2x.png`
-          line3.appendChild(pic)
-          weatherArea.appendChild(line3)
+          div.appendChild(pic)
+          weatherArea.appendChild(div)
       }
 
 

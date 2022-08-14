@@ -18,6 +18,7 @@ function jsonParser(x) {
   const icon = x.weather[0].icon;
   const description = x.weather[0].description;
   const windSpeed = x.wind.speed;
+  const timezone = x.timezone;
 
   console.log(
     `Today's temperature is ${temp}, pressure is ${pressure}`
@@ -26,7 +27,8 @@ function jsonParser(x) {
   return {
       name,
       country,
-      date,
+      timezone,
+      date,      
       icon,
       description,
     temp,

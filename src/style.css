@@ -19,7 +19,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
-    align-content: center;
+    align-content: flex-start;
+    height: 100vh;
 }
 #main {
     justify-self: center;
