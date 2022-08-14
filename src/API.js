@@ -9,9 +9,9 @@ function urlLocator(searchTerm) {
 function jsonParser(x) {
     console.log(x)
   const temp = x.main.temp;
+  const date = x.dt;
   const pressure = x.main.pressure;
-  const maxTemp = x.main.temp_max;
-  const minTemp = x.main.temp_min;
+  const feelsLike = x.main.feels_like;
   const name = x.name;
   const humidity = x.main.humidity
   const country = x.sys.country;
@@ -19,18 +19,18 @@ function jsonParser(x) {
   const windSpeed = x.wind.speed;
 
   console.log(
-    `Today's temperature is ${temp}, pressure is ${pressure}, maximum temperature is ${maxTemp}, minimum temprerature is ${minTemp}`
+    `Today's temperature is ${temp}, pressure is ${pressure}`
   );
 
   return {
       name,
       country,
+      date,
       weather,
     temp,
     humidity,
     pressure,
-    maxTemp,
-    minTemp,    
+    feelsLike,    
     windSpeed,
   };
 }

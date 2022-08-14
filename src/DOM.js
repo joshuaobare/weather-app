@@ -1,5 +1,7 @@
 /* eslint-disable require-jsdoc */
 import { getData } from "./API";
+import { dateConverter } from "./time";
+
 
 const searchBar = document.querySelector("#searchBar");
 const subbtn = document.querySelector("#submit");
@@ -48,17 +50,23 @@ function iterate(obj) {
           div.innerHTML = obj[key]
           line.appendChild(div)
             weatherArea.appendChild(line)
-      } else if  ((key === "temp")||(key ==="maxTemp")||(key === "minTemp")){
+      } else if  ((key === "temp")||(key ==="feelsLike")){
         
         if (key==="temp") {
             createDivs("Temperature",`${Math.round((obj[key])-273.15)}&#176;C`)
-        } else if (key ==="maxTemp") {
-            createDivs("Highs",`${Math.round((obj[key])-273.15)}&#176;C`)
-        } else {
-            createDivs("Lows",`${Math.round((obj[key])-273.15)}&#176;C`)
+        } else if (key ==="feelsLike") {
+            createDivs("Feels Like",`${Math.round((obj[key])-273.15)}&#176;C`)
         }
         
-      }else {
+      } else if (key === "date"){
+        const div = document.createElement("div")
+        const line3 = document.createElement("div")
+
+        div.innerHTML = dateConverter(obj[key])
+        line3.appendChild(div)
+          weatherArea.appendChild(line3)
+      }
+      else {
 
         if (key === "description") {
             createDivs(capitalizeFirstLetter(key),capitalizeFirstLetter(obj[key]))
