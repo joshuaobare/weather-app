@@ -1,58 +1,105 @@
+@font-face {
+  font-family: baufra;
+  src: url(./fonts/BaufraBold.ttf);
+}
 body {
-    margin: 0;
+  margin: 0;
+  overflow: hidden;
 }
 form {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  gap: 0;
+  margin-top: 20px;
+  align-items: center;
+}
+#submit {
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  cursor: pointer;
 }
 h1 {
-    text-align: center;
+  text-align: center;
+  font-family: baufra, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
 }
 
 header {
-    padding: 5px;
+  padding: 1px;
+}
+
+.headerimg {
+  height: 50px;
+  width: 50px;
 }
 
 main {
-    background-color: red;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-content: flex-start;
-    height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-content: flex-start;
+  height: 100vh;
 }
 #main {
-    justify-self: center;
-    text-align: center;
+  justify-self: center;
+  text-align: center;
 }
 
 .values {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    gap: 20px;
-    text-transform: capitalize;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 5px;
+  text-transform: capitalize;
+  padding: 5px;
+}
+.obj-key {
+  justify-self: end;
+}
+.obj-val {
+  justify-self: start;
 }
 
 .values.country {
-    display: flex;
-    gap: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+.values.country,
+.date {
+  font-weight: 400;
 }
 
 #weatherArea {
-    margin-top: 10px;
+  margin-top: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
 }
-
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input:focus {
+  outline: none;
+  background-color: white;
+}
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 2px;
-
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  font-family: baufra, sans-serif;
+  font-size: 0.75em;
 }
-footer, header {
-    background-color: black;
-    color: white;
+footer,
+header {
+  background-color: black;
+  color: white;
 }
